@@ -11,7 +11,7 @@
 
   resetForm = function() {
     $input.val('');
-    return $content.addClass('dn');
+    return $content.slideUp();
   };
 
   $('#submit').on('click', function() {
@@ -24,7 +24,7 @@
     });
     if (validated === true) {
       $error.text('');
-      return $content.removeClass('dn');
+      return $content.slideDown();
     } else {
       return $error.text('Please fill out all the fields, kind sir or madam.');
     }

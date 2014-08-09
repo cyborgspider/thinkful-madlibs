@@ -1,3 +1,14 @@
-body{font:16px/1.5 "Helvetica","Arial",sans-serif;background:#808080;color:#fff}
-input{color:#000}
-.dn{display:none}
+body{background:#aad1d8;color:#0c181a;font:20px/1.5 "Josefin Sans","Arial",sans-serif;padding:20px 0}
+h1,h2{font-family:'Amatic SC',sans-serif;font-size:64px;font-weight:700;margin:0}
+h2{font-size:42px;margin-bottom:8px}
+header{background:#fff;border-bottom:dashed 2px #a9071e;margin:0 -15px 20px;overflow:auto;text-align:center}
+.error{color:#a9071e;padding:8px 0;text-align:center}
+.content{display:none;border-top:dashed 2px #a9071e;padding-top:20px;margin:0 -15px}
+#reset{display:block;margin:0 auto}
+.form-control{color:#0c181a;font-size:20px;height:40px}
+.btn-primary{background:#a9071e;border-color:#55040f;text-shadow:1px 1px 4px #333;text-transform:uppercase;-webkit-transition:background 0.2s ease-in;-moz-transition:background 0.2s ease-in;-o-transition:background 0.2s ease-in;-ms-transition:background 0.2s ease-in;transition:background 0.2s ease-in;padding-top:8px;}
+.btn-primary:focus,.btn-primary:hover{background:#870618;border-color:#55040f;-webkit-box-shadow:none;box-shadow:none;outline:none}
+.btn-lg{padding-top:14px}
+.container{background:#d9edc5;border:dashed 2px #a9071e;padding-bottom:20px}
+.img-block{margin:auto}
+.border-right{border-right:dashed 2px #a9071e}
