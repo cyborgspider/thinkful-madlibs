@@ -1,12 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="">
   <head>
     <title>Madlib Thinkful Title</title>
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
   </head>
   <body>
-    <h1>Hello, Madlib Thinkful</h1>
+    <div class="container">
+      <header>
+        <div class="logo"></div>
+        <h1>ngMadLibs</h1>
+        <h2>Automate This!</h2>
+      </header>
+      <form ng-init>
+        <div class="row">
+          <div class="col-sm-4">
+            <input type="text" placeholder="Male name" ng-model="male_name">
+          </div>
+          <div class="col-sm-4">
+            <input type="text" placeholder="Dirty task" ng-model="dirty_task">
+          </div>
+          <div class="col-sm-4">
+            <input type="text" placeholder="Obnoxious celebrity" ng-model="obnoxious_celebrity">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <input type="text" placeholder="Job title" ng-model="job_title">
+          </div>
+          <div class="col-sm-4">
+            <input type="text" placeholder="Celebrity" ng-model="celebrity">
+          </div>
+          <div class="col-sm-4">
+            <input type="text" placeholder="Huge number" ng-model="huge_number">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <input type="text" placeholder="Tedious task" ng-model="tedious_task">
+          </div>
+          <div class="col-sm-4">
+            <input type="text" placeholder="Useless skill" ng-model="useless_skill">
+          </div>
+          <div class="col-sm-4">
+            <input type="text" placeholder="Adjective" ng-model="adjective">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4 col-sm-pull-4 col-sm-push-4">
+            <button id="submit" class="btn btn-primary btn-block">Check My Madlibs!</button>
+          </div>
+        </div>
+      </form>
+      <div class="error"></div>
+      <div class="content dn">
+        <p>{{ male_name}} was a {{ job_title }} who loved technology. Although he loved parts of his job, he absolutely hated {{ tedious_task }} and {{ dirty_task }}. So, {{ male_name}} met with his life mentor {{ celebrity }} who told him how to learn {{ useless_skill }} with Thinkful. Thinkful didn't offer a course on {{ useless_skill }} so he studied programming instead.</p>
+        <p>What a great decision! With his new skills, {{ male_name }} built a(n) {{ adjective }} robot named {{ obnoxious_celebrity }} that not only loved {{ dirty_task }} but did it {{ huge_number }} times faster.</p>
+        <button id="reset" class="btn btn-primary">Want to try again?</button>
+      </div>
+    </div>
     <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
     <script src="js/scripts.js"></script>
   </body>
 </html>
