@@ -1,10 +1,78 @@
+$red    = #A9071E
+$blue   = #AAD1D8
+$green  = #A0D36E
+$yellow = #FACB47
+
 body
-  font       16px/1.5 "Helvetica", "Arial", sans-serif
-  background gray
-  color      #fff
+  background $blue
+  color      darken($blue, 90%)
+  font       20px/1.5 "Josefin Sans", "Arial", sans-serif
+  padding    20px 0
 
-input
-  color #000
+h1
+h2
+  font-family 'Amatic SC', sans-serif
+  font-size   64px
+  font-weight 700
+  margin      0
+h2
+  font-size     42px
+  margin-bottom 8px
 
-.dn
-  display none
+header
+  background    #fff
+  border-bottom dashed 2px $red
+  margin        0 -15px 20px
+  overflow      auto
+  text-align    center
+
+.error
+  color      $red
+  padding    8px 0
+  text-align center
+
+.content
+  display     none
+  border-top  dashed 2px $red
+  padding-top 20px
+  margin      0 -15px
+
+#reset
+  display block  
+  margin  0 auto
+
+/*Bootstrap Component Overrides*/
+.form-control
+  color     darken($blue, 90%)  
+  font-size 20px
+  height    40px
+
+.btn-primary
+ background     $red
+ border-color   darken($red, 50%)
+ text-shadow    1px 1px 4px #333
+ text-transform uppercase
+ transition     background 0.2s ease-in
+ padding-top    8px
+
+ &:focus
+ &:hover
+   background   darken($red, 20%)
+   border-color darken($red, 50%)
+   box-shadow   none
+   outline      none
+
+.btn-lg
+  padding-top 14px
+
+.container
+  background     lighten($green, 60%)
+  border         dashed 2px $red
+  padding-bottom 20px
+
+/*Helper Classes*/
+.img-block
+  margin auto
+
+.border-right
+  border-right dashed 2px $red

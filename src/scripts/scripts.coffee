@@ -5,7 +5,7 @@ $error   = $('.error')
 
 resetForm = ->
   $input.val('')
-  $content.addClass 'dn'
+  $content.slideUp()
 
 $('#submit').on 'click', ->
   validated = false
@@ -17,7 +17,7 @@ $('#submit').on 'click', ->
 
   if validated is true
     $error.text ''
-    $content.removeClass 'dn'
+    $content.slideDown()
   else
     $error.text 'Please fill out all the fields, kind sir or madam.'
 

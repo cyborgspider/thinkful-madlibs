@@ -2,50 +2,66 @@
 html(ng-app="")
   head
     title Madlib Thinkful Title
+    link(href="http://fonts.googleapis.com/css?family=Josefin+Sans:700|Amatic+SC:700", rel="stylesheet")
     link(href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css", rel="stylesheet")
     link(href="css/styles.css", rel="stylesheet")
 
   body
     .container
       header
-        .logo
-        h1 ngMadLibs
-        h2 Automate This!
+        .row
+          .col-sm-4.border-right
+            img.img-responsive.img-block(src="img/mad-lib-happy-face.png")
+          .col-sm-8
+            img.img-responsive.img-block(src="img/ng-mad-libs-logo.png")
+            h1 Automate This!
 
       form(ng-init)
+        h2 Provide the following words:
         .row
           .col-sm-4
-            input(type="text", placeholder="Male name", ng-model="male_name")
+            .form-group
+              input.form-control(type="text", placeholder="Male name", ng-model="male_name")
           .col-sm-4
-            input(type="text", placeholder="Dirty task", ng-model="dirty_task")
+            .form-group
+              input.form-control(type="text", placeholder="Dirty task", ng-model="dirty_task")
           .col-sm-4
-            input(type="text", placeholder="Obnoxious celebrity", ng-model="obnoxious_celebrity")
+            .form-group
+              input.form-control(type="text", placeholder="Obnoxious celebrity", ng-model="obnoxious_celebrity")
 
         .row
           .col-sm-4
-            input(type="text", placeholder="Job title", ng-model="job_title")
+            .form-group
+              input.form-control(type="text", placeholder="Job title", ng-model="job_title")
           .col-sm-4
-            input(type="text", placeholder="Celebrity", ng-model="celebrity")
+            .form-group
+              input.form-control(type="text", placeholder="Celebrity", ng-model="celebrity")
           .col-sm-4
-            input(type="text", placeholder="Huge number", ng-model="huge_number")
+            .form-group
+              input.form-control(type="text", placeholder="Huge number", ng-model="huge_number")
 
         .row
           .col-sm-4
-            input(type="text", placeholder="Tedious task", ng-model="tedious_task")
+            .form-group
+              input.form-control(type="text", placeholder="Tedious task", ng-model="tedious_task")
           .col-sm-4
-            input(type="text", placeholder="Useless skill", ng-model="useless_skill")
+            .form-group
+              input.form-control(type="text", placeholder="Useless skill", ng-model="useless_skill")
           .col-sm-4
-            input(type="text", placeholder="Adjective", ng-model="adjective")
+            .form-group
+              input.form-control(type="text", placeholder="Adjective", ng-model="adjective")
         .row
           .col-sm-4.col-sm-pull-4.col-sm-push-4
-            button#submit.btn.btn-primary.btn-block Check My Madlibs!
+            button#submit.btn.btn-primary.btn-lg.btn-block Check My Madlibs!
 
 
       .error
-      .content.dn
-        p {{ male_name}} was a {{ job_title }} who loved technology. Although he loved parts of his job, he absolutely hated {{ tedious_task }} and {{ dirty_task }}. So, {{ male_name}} met with his life mentor {{ celebrity }} who told him how to learn {{ useless_skill }} with Thinkful. Thinkful didn't offer a course on {{ useless_skill }} so he studied programming instead.
-        p What a great decision! With his new skills, {{ male_name }} built a(n) {{ adjective }} robot named {{ obnoxious_celebrity }} that not only loved {{ dirty_task }} but did it {{ huge_number }} times faster.
-        button#reset.btn.btn-primary Want to try again?
+      .content
+        .row
+          .col-sm-8.col-sm-pull-2.col-sm-push-2
+            p {{ male_name}} was a {{ job_title }} who loved technology. Although he loved parts of his job, he absolutely hated {{ tedious_task }} and {{ dirty_task }}. So, {{ male_name}} met with his life mentor {{ celebrity }} who told him how to learn {{ useless_skill }} with Thinkful. Thinkful didn't offer a course on {{ useless_skill }} so he studied programming instead.
+            p What a great decision! With his new skills, {{ male_name }} built a(n) {{ adjective }} robot named {{ obnoxious_celebrity }} that not only loved {{ dirty_task }} but did it {{ huge_number }} times faster.
+            button#reset.btn.btn-primary Want to try again?
 
     script(src="http://code.jquery.com/jquery-2.0.3.min.js")
     script(src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js")
