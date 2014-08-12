@@ -1,5 +1,5 @@
 !!! 5
-html(ng-app="")
+html(ng-app="madLibApp")
   head
     title Madlib Thinkful Title
     link(href="http://fonts.googleapis.com/css?family=Josefin+Sans:700|Amatic+SC:700", rel="stylesheet")
@@ -7,7 +7,7 @@ html(ng-app="")
     link(href="css/styles.css", rel="stylesheet")
 
   body
-    .container
+    .container(ng-controller="InputValueHandler")
       header
         .row
           .col-sm-4.border-right
@@ -16,12 +16,12 @@ html(ng-app="")
             img.img-responsive.img-block(src="img/ng-mad-libs-logo.png")
             h1 Automate This!
 
-      form(ng-init)
+      form
         h2 Provide the following words:
         .row
           .col-sm-4
             .form-group
-              input.form-control(type="text", placeholder="Male name", ng-model="male_name")
+              input.form-control(type="text", placeholder="Male name", ng-model="values.male_name")
           .col-sm-4
             .form-group
               input.form-control(type="text", placeholder="Dirty task", ng-model="dirty_task")
@@ -59,10 +59,11 @@ html(ng-app="")
       .content
         .row
           .col-sm-8.col-sm-pull-2.col-sm-push-2
-            p {{ male_name}} was a {{ job_title }} who loved technology. Although he loved parts of his job, he absolutely hated {{ tedious_task }} and {{ dirty_task }}. So, {{ male_name}} met with his life mentor {{ celebrity }} who told him how to learn {{ useless_skill }} with Thinkful. Thinkful didn't offer a course on {{ useless_skill }} so he studied programming instead.
+            p {{ values.male_name}} was a {{ job_title }} who loved technology. Although he loved parts of his job, he absolutely hated {{ tedious_task }} and {{ dirty_task }}. So, {{ male_name}} met with his life mentor {{ celebrity }} who told him how to learn {{ useless_skill }} with Thinkful. Thinkful didn't offer a course on {{ useless_skill }} so he studied programming instead.
             p What a great decision! With his new skills, {{ male_name }} built a(n) {{ adjective }} robot named {{ obnoxious_celebrity }} that not only loved {{ dirty_task }} but did it {{ huge_number }} times faster.
             button#reset.btn.btn-primary Want to try again?
 
     script(src="http://code.jquery.com/jquery-2.0.3.min.js")
     script(src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js")
+    script(src="js/madLibApp.js")
     script(src="js/scripts.js")
