@@ -16,10 +16,12 @@
 
   $('#submit').on('click', function() {
     var validated;
-    validated = false;
+    validated = true;
     $input.each(function() {
-      if ($input.val() !== '') {
-        return validated = true;
+      var $this;
+      $this = $(this);
+      if ($this.val() === '') {
+        return validated = false;
       }
     });
     if (validated === true) {
