@@ -8,12 +8,12 @@ resetForm = ->
   $content.slideUp()
 
 $('#submit').on 'click', ->
-  validated = false
+  validated = true
 
-  #For Mentor, why does the first input ignore validation?
   $input.each ->
-    if $input.val() isnt ''
-      validated = true
+    $this = $(this)
+    if $this.val() is ''
+      validated = false
 
   if validated is true
     $error.text ''
