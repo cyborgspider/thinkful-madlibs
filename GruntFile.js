@@ -9,8 +9,8 @@ module.exports =function(grunt){
           livereload: true
         },
         js: {
-          files:   ['src/scripts/*.coffee'],
-          tasks:   ['coffee','uglify']
+          files:   ['src/scripts/*.js'],
+          tasks:   ['copy']
         },
         css:{
           files:   ['src/styles/*.styl'],
@@ -21,27 +21,11 @@ module.exports =function(grunt){
           tasks:   ['jade']
         }
       },
-      coffee:{
-        glob_to_multiple: {
-          expand: true,
-          flatten: true,
-          cwd: 'src/scripts',
-          src: ['*.coffee'],
-          dest: 'build/js',
-          ext: '.js'
-        }
-      },
-      uglify: {
-        my_target: {
-          files: {
-            'build/js/scripts.min.js': ['build/js/scripts.js']
-          }
-        }
-      },
       copy: {
         main: {
           files: [
             {expand: true, cwd: 'src/images', src: '*', dest: 'build/img'},
+            {expand: true, cwd: 'src/scripts', src: '*', dest: 'build/js'},
             {expand: true, cwd: 'src/lib/css', src: '*', dest: 'build/css'},
             {expand: true, cwd: 'src/lib/js', src: '*', dest: 'build/js'}
           ]
@@ -56,7 +40,6 @@ module.exports =function(grunt){
             'build/css/styles.css': ['src/styles/*.styl'] // compile and concat into single file
           }
         }
-
       },
       jade:{
         compile:{
@@ -79,8 +62,8 @@ module.exports =function(grunt){
      });
 
      //Run the task
-     grunt.registerTask('default', ['watch','coffee', 'uglify', 'stylus', 'jade', 'copy']);
-     grunt.registerTask('build', ['coffee', 'uglify', 'stylus','jade', 'copy']);
+     grunt.registerTask('default', ['watch','stylus', 'jade', 'copy']);
+     grunt.registerTask('build', ['stylus','jade', 'copy']);
      grunt.registerTask('pages', ['build','gh-pages']);
 
 };
