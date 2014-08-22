@@ -22,11 +22,14 @@ module.exports =function(grunt){
         }
       },
       coffee:{
-        compile: {
-            files: {
-              'build/js/scripts.js': ['src/scripts/*.coffee'] // compile and concat into single file
-            }
-          }
+        glob_to_multiple: {
+          expand: true,
+          flatten: true,
+          cwd: 'src/scripts',
+          src: ['*.coffee'],
+          dest: 'build/js',
+          ext: '.js'
+        }
       },
       uglify: {
         my_target: {
@@ -75,18 +78,7 @@ module.exports =function(grunt){
       }
      });
 
-     //Register (load) the plugins to make them available in Grunt
-     //matchdep makes this unnecessary, but it's added here for reference.
-     // grunt.loadNpmTasks('grunt-contrib-watch');
-     // grunt.loadNpmTasks('grunt-contrib-coffee');
-     // grunt.loadNpmTasks('grunt-contrib-stylus');
-     // grunt.loadNpmTasks('grunt-contrib-jade');
-     // grunt.loadNpmTasks('grunt-contrib-imagemin');
-     // grunt.loadNpmTasks('grunt-contrib-uglify');
-     // grunt.loadNpmTasks('grunt-contrib-copy');
-
      //Run the task
-     //Copy is registered but not executed. Refer to commented code in the initConfig method for details on how to add it.
      grunt.registerTask('default', ['watch','coffee', 'uglify', 'stylus', 'jade', 'copy']);
      grunt.registerTask('build', ['coffee', 'uglify', 'stylus','jade', 'copy']);
      grunt.registerTask('pages', ['build','gh-pages']);

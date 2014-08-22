@@ -10,7 +10,6 @@ resetForm = ->
 $('#submit').on 'click', ->
   validated = true
 
-  #For Mentor, why does the first input ignore validation?
   $input.each ->
     $this = $(this)
     if $this.val() is ''
