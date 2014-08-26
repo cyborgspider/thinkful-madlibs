@@ -32,9 +32,15 @@ header
   text-align center
 
 .content
-  display     none
   padding-top 20px
   margin      0 -15px
+  transition  all 0.2s ease-in
+
+  &.ng-enter
+    opacity 0
+
+  &.ng-enter-active
+    opacity 1
 
 #reset
   display block  

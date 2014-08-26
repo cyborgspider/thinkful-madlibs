@@ -73,7 +73,7 @@ html(ng-app="madLibApp")
             input(type="submit", value="Generate My Madlibs!")#submit.btn.btn-primary.btn-lg.btn-block Generate My Madlibs!
 
 
-      .content
+      .content(ng-if="submitted && madLibForm.$valid")
         .row
           .col-sm-8.col-sm-pull-2.col-sm-push-2
             p {{ values.name}} was a {{ values.job_title }} who loved technology. Although {{ heOrShe() }} loved parts of {{ hisOrHer() }} job, {{ heOrShe() }} absolutely hated {{ values.tedious_task }} and {{ values.dirty_task }}. So, {{ values.name}} met with {{ hisOrHer() }} life mentor {{ values.celebrity }} who told {{ himOrHer() }} how to learn {{ values.useless_skill }} with Thinkful. Thinkful didn't offer a course on {{ values.useless_skill }} so {{ heOrShe() }} studied programming instead.
@@ -82,4 +82,5 @@ html(ng-app="madLibApp")
 
     script(src="http://code.jquery.com/jquery-2.0.3.min.js")
     script(src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js")
+    script(src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular-animate.js")
     script(src="js/madLibApp.js")
