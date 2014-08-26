@@ -1,29 +1,33 @@
 angular.module('madLibApp',[])
   .controller('InputValueHandler', function($scope){
 
+    var $input = $('input[type="text"], input[type="number"]');
+
     $scope.gender = 'male';
+
+    $scope.submitted = false;
 
     $scope.heOrShe = function(){
       if($scope.gender === 'male'){
-        return 'he'
+        return 'he';
       } else {
-        return'she'
+        return'she';
       }
     };
 
     $scope.hisOrHer = function(){
       if($scope.gender === 'male'){
-        return 'his'
+        return 'his';
       } else {
-        return'her'
+        return'her';
       }
     };
 
     $scope.himOrHer = function(){
       if($scope.gender === 'male'){
-        return 'him'
+        return 'him';
       } else {
-        return'her'
+        return'her';
       }
     };
 
@@ -37,6 +41,23 @@ angular.module('madLibApp',[])
       tedious_task:        '',
       useless_skill:       '',
       adjective:           ''
+    };
+
+    $scope.submitForm = function(){
+      $scope.submitted = true;
+      if($scope.madLibForm.$valid){
+        $('form').hide();
+        $('.content').show();
+      } else {
+        $scope.submitted = false;
+      }
+    };
+
+    $scope.resetForm = function(){
+      $scope.values = {};
+      $scope.madLibForm.$setPristine();
+      $('.content').hide();
+      $('form').show();
     };
 
   });
