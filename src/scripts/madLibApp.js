@@ -1,11 +1,9 @@
 angular.module('madLibApp',['ngAnimate'])
   .controller('InputValueHandler', function($scope){
 
-    var $input = $('input[type="text"], input[type="number"]');
-
     $scope.gender = 'male';
-
-    $scope.submitted = false;
+    $scope.clicked     = false;
+    $scope.showResults = false;
 
     $scope.heOrShe = function(){
       if($scope.gender === 'male'){
@@ -43,21 +41,30 @@ angular.module('madLibApp',['ngAnimate'])
       adjective:           ''
     };
 
+    $scope.checkRequiredError = function(formItemName){
+      return $scope.$eval('clicked && madLibForm.'+formItemName+'.$error.required');
+      // return $scope.submitted && $scope.madLibForm.name.$error.required);
+    };
+
+    $scope.checkIfNumber = function(formItemName){
+      return $scope.$eval('clicked && madLibForm.'+formItemName+'.$error.number');
+      // return $scope.submitted && $scope.madLibForm.name.$error.required);
+    };
+
     $scope.submitForm = function(){
-      $scope.submitted = true;
+      $scope.clicked = true;
       if($scope.madLibForm.$valid){
-        $('form').hide();
-        // $('.content').show();
+        $scope.showResults = true;
       } else {
-        $scope.submitted = false;
+        $scope.showResults = false;
       }
     };
 
     $scope.resetForm = function(){
       $scope.values = {};
       $scope.madLibForm.$setPristine();
-      $('.content').hide();
-      $('form').show();
+      $scope.showResults = false;
+      $scope.clicked     = false;
     };
 
   });
