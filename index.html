@@ -16,7 +16,7 @@
           </div>
         </div>
       </header>
-      <form ng-submit="submitForm();" novalidate name="madLibForm">
+      <form ng-submit="submitForm()" novalidate name="madLibForm" ng-hide="showResults">
         <h2>Provide the following words:</h2>
         <div class="row">
           <div class="col-sm-4">
@@ -31,20 +31,20 @@
         <div class="row">
           <div class="col-sm-4">
             <div class="form-group">
-              <input type="name" placeholder="Name" ng-model="values.name" required name="name" class="form-control">
-              <div ng-if="submitted &amp;&amp; madLibForm.name.$error.required" class="error">Please input a name</div>
+              <input type="text" placeholder="Name" ng-model="values.name" required name="name" class="form-control">
+              <div ng-show="checkRequiredError('name')" class="error">Please input a name</div>
             </div>
           </div>
           <div class="col-sm-4">
             <div class="form-group">
               <input type="text" placeholder="Dirty task" ng-model="values.dirty_task" required name="dirty_task" class="form-control">
-              <div ng-if="submitted &amp;&amp; madLibForm.dirty_task.$error.required" class="error">Please write a dirty task</div>
+              <div ng-show="checkRequiredError('dirty_task')" class="error">Please write a dirty task</div>
             </div>
           </div>
           <div class="col-sm-4">
             <div class="form-group">
               <input type="text" placeholder="Obnoxious celebrity" ng-model="values.obnoxious_celebrity" required name="obnoxious_celebrity" class="form-control">
-              <div ng-if="submitted &amp;&amp; madLibForm.obnoxious_celebrity.$error.required" class="error">Please name an obnoxious celebrity </div>
+              <div ng-show="checkRequiredError('obnoxious_celebrity')" class="error">Please name an obnoxious celebrity</div>
             </div>
           </div>
         </div>
@@ -52,20 +52,20 @@
           <div class="col-sm-4">
             <div class="form-group">
               <input type="text" placeholder="Job title" ng-model="values.job_title" required name="job_title" class="form-control">
-              <div ng-if="submitted &amp;&amp; madLibForm.job_title.$error.required" class="error">Please write a job title </div>
+              <div ng-show="checkRequiredError('job_title')" class="error">Please write a job title</div>
             </div>
           </div>
           <div class="col-sm-4">
             <div class="form-group">
               <input type="text" placeholder="Celebrity" ng-model="values.celebrity" required name="celebrity" class="form-control">
-              <div ng-if="submitted &amp;&amp; madLibForm.celebrity.$error.required" class="error">Please name another celebrity  </div>
+              <div ng-show="checkRequiredError('celebrity')" class="error">Please name another celebrity</div>
             </div>
           </div>
           <div class="col-sm-4">
             <div class="form-group">
               <input type="number" placeholder="Huge number" ng-model="values.huge_number" required name="huge_number" class="form-control">
-              <div ng-if="submitted &amp;&amp; madLibForm.huge_number.$error.required" class="error">Don't leave this blank</div>
-              <div ng-if="submitted &amp;&amp; madLibForm.huge_number.$error.number" class="error">Write a number, please.</div>
+              <div ng-show="checkRequiredError('huge_number')" class="error">Don't leave this blank</div>
+              <div ng-show="checkIfNumber('huge_number')" class="error">Write a number, please.</div>
             </div>
           </div>
         </div>
@@ -73,40 +73,41 @@
           <div class="col-sm-4">
             <div class="form-group">
               <input type="text" placeholder="Tedious task" ng-model="values.tedious_task" required name="tedious_task" class="form-control">
-              <div ng-if="submitted &amp;&amp; madLibForm.tedious_task.$error.required" class="error">Please write a tedious task  </div>
+              <div ng-show="checkRequiredError('tedious_task')" class="error">Please write a tedious task</div>
             </div>
           </div>
           <div class="col-sm-4">
             <div class="form-group">
               <input type="text" placeholder="Useless skill" ng-model="values.useless_skill" required name="useless_skill" class="form-control">
-              <div ng-if="submitted &amp;&amp; madLibForm.useless_skill.$error.required" class="error">Please write a useless skill </div>
+              <div ng-show="checkRequiredError('useless_skill')" class="error">Please write a useless skill</div>
             </div>
           </div>
           <div class="col-sm-4">
             <div class="form-group">
               <input type="text" placeholder="Adjective" ng-model="values.adjective" required name="adjective" class="form-control">
-              <div ng-if="submitted &amp;&amp; madLibForm.adjective.$error.required" class="error">Please write an adjective  </div>
+              <div ng-show="checkRequiredError('adjective')" class="error">Please write an adjective</div>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-sm-4 col-sm-pull-4 col-sm-push-4">
-            <input type="submit" value="Generate My Madlibs!" id="submit" class="btn btn-primary btn-lg btn-block">
+            <input id="submit" type="submit" value="Generate My Madlibs!" class="btn btn-primary btn-lg btn-block">
           </div>
         </div>
       </form>
-      <div class="content">
+      <div ng-if="showResults" class="content">
         <div class="row">
           <div class="col-sm-8 col-sm-pull-2 col-sm-push-2">
             <p>{{ values.name}} was a {{ values.job_title }} who loved technology. Although {{ heOrShe() }} loved parts of {{ hisOrHer() }} job, {{ heOrShe() }} absolutely hated {{ values.tedious_task }} and {{ values.dirty_task }}. So, {{ values.name}} met with {{ hisOrHer() }} life mentor {{ values.celebrity }} who told {{ himOrHer() }} how to learn {{ values.useless_skill }} with Thinkful. Thinkful didn't offer a course on {{ values.useless_skill }} so {{ heOrShe() }} studied programming instead.</p>
             <p>What a great decision! With {{ hisOrHer() }} new skills, {{ values.name }} built a(n) {{ values.adjective }} robot named {{ values.obnoxious_celebrity }} that not only loved {{ values.dirty_task }} but did it {{ values.huge_number }} times faster.</p>
-            <button id="reset" ng-click="resetForm();" class="btn btn-primary">Want to try again?</button>
+            <button id="reset" ng-click="resetForm()" class="btn btn-primary">Want to try again?</button>
           </div>
         </div>
       </div>
     </div>
     <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular-animate.js"></script>
     <script src="js/madLibApp.js"></script>
   </body>
 </html>

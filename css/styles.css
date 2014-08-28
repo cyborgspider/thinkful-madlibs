@@ -3,7 +3,9 @@ h1,h2{font-family:'Amatic SC',sans-serif;font-size:64px;font-weight:700;margin:0
 h2{font-size:42px;margin-bottom:8px}
 header{background:#fff;border-bottom:dashed 2px #a9071e;margin:0 -15px 20px;overflow:auto;text-align:center}
 .error{color:#a9071e;padding:8px 0;text-align:center}
-.content{display:none;padding-top:20px;margin:0 -15px}
+.content{padding-top:20px;margin:0 -15px;-webkit-transition:all 0.2s ease-in;-moz-transition:all 0.2s ease-in;-o-transition:all 0.2s ease-in;-ms-transition:all 0.2s ease-in;transition:all 0.2s ease-in;}
+.content.ng-enter{opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0)}
+.content.ng-enter-active{opacity:1;-ms-filter:none;filter:none}
 #reset{display:block;margin:0 auto}
 .form-control{color:#0c181a;font-size:20px;height:40px}
 .btn-primary{background:#a9071e;border-color:#55040f;text-shadow:1px 1px 4px #333;text-transform:uppercase;-webkit-transition:background 0.2s ease-in;-moz-transition:background 0.2s ease-in;-o-transition:background 0.2s ease-in;-ms-transition:background 0.2s ease-in;transition:background 0.2s ease-in;padding-top:8px;}
